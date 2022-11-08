@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import linebot from 'linebot'
-import fetchExhibition from './commands/fetchExhibition.js'
+import simple from './commands/simple.js'
+import fetchExhibitions from './commands/fetchExhibitions.js'
 
 const bot = linebot({
   channelid: process.env.CHANNEL_ID,
@@ -10,7 +11,11 @@ const bot = linebot({
 
 bot.on('message', event => {
   if (event.message.type !== 'text') return
-  fetchExhibition(event)
+  if (event.message.text === '最新展覽') {
+    fetchExhibitions(event)
+  } else {
+    simple(event)
+  }
 })
 bot.listen('/', process.env.PORT || 3000, () => {
   console.log('機器人啟動')
