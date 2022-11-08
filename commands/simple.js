@@ -11,7 +11,7 @@ export default async (event) => {
     const Exhibitions = []
 
     $('.list_box').each(function () {
-      console.log($(this).find('h2').text())
+      // console.log($(this).find('h2').text())
       if ($(this).find('h2').text().includes(event.message.text)) {
         bubble.body.contents[0].text = $(this).find('h2').text()
         bubble.hero.url = encodeURI($(this).find('.pic').attr('style').substring(21, 129).trim())
