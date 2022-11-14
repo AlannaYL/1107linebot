@@ -9,7 +9,7 @@ const main = async (event) => {
     $('.list_box').each(function () {
       // console.log($(this).find('h2').text())
       if ($(this).find('h2').text().includes(event)) {
-        console.log($(this).find('h2').text())
+        console.log($(this).find('p').text().substring(3, 26).trim())
       }
     })
 

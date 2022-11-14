@@ -10,8 +10,11 @@ const bot = linebot({
 })
 
 bot.on('message', event => {
-  if (event.message.type !== 'text') return
-  if (event.message.text === '最新展覽') {
+  console.log(event.message)
+  if (event.message.type === 'location') {
+    fetchMap(event)
+  } else if (event.message.type !== 'text') return
+  if (event.message.text === '新展覽') {
     fetchExhibitions(event)
   } else {
     simple(event)

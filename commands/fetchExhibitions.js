@@ -15,8 +15,9 @@ export default async (event) => {
       const bubble = JSON.parse(JSON.stringify(template))
       bubble.hero.url = encodeURI($(this).find('.pic').attr('style').substring(21, 129).trim())
       bubble.body.contents[0].text = $(this).find('h2').text().trim()
-      bubble.body.contents[1].contents[0].contents[1].text = $(this).find('p').text().trim()
-      bubble.footer.contents[0].action.uri = $(this).find('.tag a').attr('href')
+      bubble.hero.action.text = $(this).find('h2').text().trim()
+      // bubble.body.contents[1].contents[0].contents[1].text = $(this).find('p').text().substring(3, 26).trim()
+      // bubble.footer.contents[0].action.uri = $(this).find('.tag a').attr('href')
       Exhibitions.push(bubble)
     })
 
@@ -37,6 +38,7 @@ export default async (event) => {
       }
     }
   } catch (error) {
+    console.log(error)
     event.reply('尋找資料中，請稍後試試看')
   }
 }
