@@ -82,7 +82,7 @@ export default {
         height: 'sm',
         action: {
           type: 'uri',
-          label: 'action',
+          label: '詳細介紹',
           uri: 'http://linecorp.com/'
         }
       },

@@ -11,11 +11,7 @@ export default async (event) => {
     const Exhibitions = []
     let line = ''
 
-<<<<<<< HEAD
-    $('.list_box').each(async function () {
-=======
     $('.list_box').each(function () {
->>>>>>> main
       // console.log($(this).find('h2').text())
       if ($(this).find('h2').text().includes(event.message.text)) {
         // 抓圖
@@ -32,9 +28,14 @@ export default async (event) => {
     // 抓該展覽的頁面網址資訊
     bubble.body.contents[1].contents[0].contents[1].text = $$('.exb_info').find('li').eq('1').find('p').text().trim()
     bubble.body.contents[1].contents[1].contents[1].text = $$('.exb_info').find('li').eq('0').find('p').text().substring(3, 26).trim()
-    console.log($$('.exb_info').find('li').eq('0').find('p').text().substring(3, 26).trim())
+    // console.log($$('.exb_info').find('li').eq('0').find('p').text().substring(3, 26).trim())
     Exhibitions.push(bubble)
 
+
+    if (Exhibitions.length === 0) {
+      event.reply('尋展覽中，請稍後試試看或更換關鍵字')
+      return
+    }
     const reply = {
       type: 'flex',
       altText: '展覽查詢結果',
@@ -49,6 +50,6 @@ export default async (event) => {
     }
   } catch (error) {
     console.log(error)
-    event.reply('尋找資料中，請稍後試試看')
+    event.reply('尋找展覽中，請稍後試試看或更換關鍵字')
   }
 }
