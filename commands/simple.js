@@ -11,11 +11,7 @@ export default async (event) => {
     const Exhibitions = []
     let line = ''
 
-<<<<<<< HEAD
-    $('.list_box').each(async function () {
-=======
     $('.list_box').each(function () {
->>>>>>> main
       // console.log($(this).find('h2').text())
       if ($(this).find('h2').text().includes(event.message.text)) {
         // 抓圖
