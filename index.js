@@ -14,7 +14,7 @@ bot.on('message', event => {
   if (event.message.type === 'location') {
     fetchMap(event)
   } else if (event.message.type !== 'text') return
-  if (event.message.text === '新展覽') {
+  else if (event.message.text === '新展覽') {
     fetchExhibitions(event)
   } else {
     simple(event)
