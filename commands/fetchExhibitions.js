@@ -11,7 +11,6 @@ export default async (event) => {
     const Exhibitions = []
     const bubble = JSON.parse(JSON.stringify(template))
 
-
     // 推送全部
     $('.list_box').each(function () {
       bubble.hero.url = encodeURI($(this).find('.pic').attr('style').substring(21, 129).trim())

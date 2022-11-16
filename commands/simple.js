@@ -31,7 +31,6 @@ export default async (event) => {
     // console.log($$('.exb_info').find('li').eq('0').find('p').text().substring(3, 26).trim())
     Exhibitions.push(bubble)
 
-
     if (Exhibitions.length === 0) {
       event.reply('尋展覽中，請稍後試試看或更換關鍵字')
       return
