@@ -11,12 +11,13 @@ const bot = linebot({
 
 bot.on('message', event => {
   console.log(event.message)
-  if (event.message.type === 'location') {
-    fetchMap(event)
-  } else if (event.message.type !== 'text') return
-  else if (event.message.text === '新展覽') {
+  if (event.message.type !== 'text') return
+  else if (event.message.text === '查詢展覽') {
     fetchExhibitions(event)
-  } else {
+  } else if (event.message.text === '我該如何使用？') {
+    event.reply('如果想找尋最新展覽，請點選展覽查詢')
+  }
+  else {
     simple(event)
   }
 })

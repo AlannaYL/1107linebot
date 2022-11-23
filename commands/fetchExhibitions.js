@@ -19,6 +19,7 @@ export default async (event) => {
       // bubble.body.contents[1].contents[0].contents[1].text = $(this).find('p').text().substring(3, 26).trim()
       // bubble.footer.contents[0].action.uri = $(this).find('.tag a').attr('href')
       Exhibitions.push(bubble)
+      console.log(bubble)
     })
 
     const replies = _.chunk(Exhibitions, 12).map(bubbles => {
