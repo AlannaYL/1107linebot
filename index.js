@@ -16,8 +16,7 @@ bot.on('message', event => {
     fetchExhibitions(event)
   } else if (event.message.text === '我該如何使用？') {
     event.reply('如果想找尋最新展覽，請點選展覽查詢')
-  }
-  else {
+  } else {
     simple(event)
   }
 })
