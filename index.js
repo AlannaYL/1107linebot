@@ -1,7 +1,10 @@
 import 'dotenv/config'
 import linebot from 'linebot'
+import express from 'express'
 import simple from './commands/simple.js'
 import fetchExhibitions from './commands/fetchExhibitions.js'
+
+const app = express()
 
 const bot = linebot({
   channelid: process.env.CHANNEL_ID,
@@ -20,6 +23,15 @@ bot.on('message', event => {
     simple(event)
   }
 })
-bot.listen('/', process.env.PORT || 3000, () => {
+
+const linebotParser = bot.parser()
+
+app.post('/', linebotParser)
+
+app.get('/', (req, res) => {
+  res.status(200).send('ok')
+})
+
+app.listen('/', process.env.PORT || 3000, () => {
   console.log('機器人啟動')
 })
